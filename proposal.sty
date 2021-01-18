@@ -88,3 +88,24 @@
 \newcommand{\position}[2]{\par #1 \hfill \num[round-mode = places, round-precision = 2]{#2}\,\euro \FPeval{\funds}{\funds + #2}}
 % Same as above but with multiples of a position.
 \newcommand{\positionmul}[3]{\par #1 \hfill \num{#3} $\times$ \num[round-mode = places, round-precision = 2]{#2}\,\euro \FPeval{\funds}{\funds + #3*#2}}
+
+\newcounter{wp}
+\newenvironment{workpackage}[1][]{\refstepcounter{wp}
+%	\vspace*{0.5cm}\hrulefill
+	\bigskip\hrulefill{}
+	
+	{\usekomafont{section} WP \thewp~#1.}
+	\par
+	\bigskip
+}{\ignorespacesafterend}
+\newenvironment{wpsummary}{
+	\begin{tcolorbox}[sidebyside, lefthand width=1.2cm, sidebyside align=top seam, enhanced,
+		segmentation code={\path[draw=black!50!white, very thick]($(segmentation.south) + (0, .3)$) -- ($(segmentation.north) - (0, .3)$);},
+		colback=white, coltitle=black, colbacktitle=white,
+		adjusted title={WP\,\thewp{} -- Summary}, fonttitle=\bfseries]
+	\begin{center}\input{lamp.tex}\end{center}
+	\tcblower
+}{\end{tcolorbox}}
+
+\newcounter{researchgoal}
+\newcommand{\goal}[1]{\refstepcounter{researchgoal}\textbf{Goal~\arabic{researchgoal}} #1\par}
