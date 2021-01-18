@@ -1,34 +1,30 @@
-\ProvidesPackage{proposal}[2018/02/27]
+\ProvidesPackage{proposal}[2021/01/18]
 
-\usepackage[usenames,dvipsnames,svgnames]{xcolor}
-\usepackage[ngerman, english]{babel}
-\usepackage{amsmath}
-%\usepackage[hidelinks]{hyperref}
-\usepackage{microtype}
-\usepackage[headheight = 28pt, tmargin = 70pt, lmargin = 55pt, rmargin = 55pt, bmargin = 70pt]{geometry}
-\usepackage[exponent-product = \cdot]{siunitx}
-\usepackage{rotating}
-\usepackage{helvet}
-\usepackage{lastpage}
-\usepackage{scrlayer-scrpage}
-\usepackage{eurosym}
-\usepackage{fp}
-\usepackage{pgfgantt}
-\usepackage{xspace}
-\usepackage{verbatim}
+\RequirePackage[usenames,dvipsnames,svgnames]{xcolor}
+%\RequirePackage[ngerman, english]{babel}
+\RequirePackage{babel}
+\RequirePackage{amsmath}
+\RequirePackage[babel]{microtype}
+\RequirePackage{geometry}
+\RequirePackage[exponent-product={\cdot}]{siunitx}
+%\RequirePackage{rotating}
+\RequirePackage{helvet}
+\RequirePackage{lastpage}
+\RequirePackage{scrlayer-scrpage}
+\RequirePackage{eurosym}
+\RequirePackage{fp}
+\RequirePackage{tcolorbox}
+\tcbuselibrary{skins}
 
-\usepackage{tikz}
-\usepackage{pgfplots}
-\pgfplotsset{compat=newest}
-
-\usepackage[backend = biber,
+\RequirePackage[backend = biber,
     style = alphabetic,%numeric
-    firstinits = true,
+    giveninits = true,
     natbib = true,
     hyperref = true,
     maxbibnames = 10%,
     %sorting=none,%remove this to have things sorted, e.g. use style=alphabetic
     ]{biblatex}
+\RequirePackage[babel]{csquotes}
 \renewcommand*{\labelalphaothers}{}
 
 %% von Hurenkindern und Schusterjungen
@@ -65,13 +61,15 @@
 
 \KOMAoptions{paper=a4}
 \KOMAoption{fontsize}{11pt}
-\pagestyle{scrheadings}
-\setkomafont{section}{\normalsize}
-\setkomafont{subsection}{\normalsize}
+\geometry{headheight=28pt, tmargin=70pt, lmargin=55pt, rmargin=55pt, bmargin=70pt}
+\setkomafont{section}{\normalsize\bfseries}
+\setkomafont{subsection}{\normalsize\bfseries}
 \renewcommand{\familydefault}{\sfdefault}
 \renewcommand{\headfont}{\sffamily\footnotesize}
 \setlength{\parskip}{0.5em}
 \setlength{\parindent}{0em}
+
+\pagestyle{plain}
 
 \newcommand{\subsubsubsection}[1]{\paragraph{#1} \mbox{} \par}
 \setcounter{secnumdepth}{5}
